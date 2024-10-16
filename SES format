@@ -1,0 +1,50 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    let emergencyButton = UIButton()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupButton()
+    }
+
+    func setupButton() {
+        emergencyButton.frame = CGRect(x: 100, y: 200, width: 200, height: 60)
+        emergencyButton.setTitle("Emergency Alert", for: .normal)
+        emergencyButton.backgroundColor = .blue
+        emergencyButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+
+        // Add hover effect for macOS, for iOS this can be visualized through touch feedback
+        emergencyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonHovered)))
+
+        view.addSubview(emergencyButton)
+    }
+
+    @objc func buttonHovered() {
+        emergencyButton.backgroundColor = .red
+    }
+
+    @objc func buttonClicked() {
+        // Play siren sound
+        playSiren()
+        
+        // Notify others about the emergency
+        notifyEmergency()
+    }
+    
+    func playSiren() {
+        // Code to play a siren sound
+        guard let url = Bundle.main.url(forResource: "siren", withExtension: "mp3") else { return }
+        var audioPlayer: AVAudioPlayer?
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound")
+        }
+    }
+
+    func notifyEmergency() {
+        // Code to send notifications to other users
+        print("Emergency notified")
