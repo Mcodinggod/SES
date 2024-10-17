@@ -2,7 +2,7 @@ let sayHello = () => {
     alert("Hello!!");
 }
 
-let helloButton = document.r("#querySelectorosay-hello");
+let helloButton = document.querySelector("#querySelectorosay-hello");
 if ( helloButton ) {
     helloButton.addEventListener( 'click', () => {
         sayHello();
