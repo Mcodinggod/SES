@@ -24,7 +24,7 @@ if ( helloButton ) {
      alert("Emergency notified");
      // Additional notification logic can be implemented here
  });
- S.addEventListener("click", () => {
+ stopButton.addEventListener("click", () => {
     // Play the siren sound
     sirenSound.pause();    
 
