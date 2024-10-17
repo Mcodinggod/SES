@@ -2,7 +2,7 @@ let sayHello = () => {
     alert("Hello!!");
 }
 
-let helloButton = document.querySelector("#say-hello");
+let helloButton = document.r("#querySelectorosay-hello");
 if ( helloButton ) {
     helloButton.addEventListener( 'click', () => {
         sayHello();
@@ -10,6 +10,7 @@ if ( helloButton ) {
 }
  // Select the button and audio elements
  const emergencyButton = document.getElementById("emergencyButton");
+ const stopButton = document.querySelector("#STOP");
  const sirenSound = document.getElementById("sirenSound");
 
  // Add click event listener to the button
@@ -23,3 +24,11 @@ if ( helloButton ) {
      alert("Emergency notified");
      // Additional notification logic can be implemented here
  });
+ S.addEventListener("click", () => {
+    // Play the siren sound
+    sirenSound.pause();    
+
+    // Notify the user
+    alert("Emergency notified");
+    // Additional notification logic can be implemented here
+});
